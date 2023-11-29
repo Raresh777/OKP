@@ -8,113 +8,113 @@
     <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+  /* General Scrollbar Styles */
   ::-webkit-scrollbar {
-      width: 10px;
+    width: 10px;
   }
-
   ::-webkit-scrollbar-thumb {
-      background: #555;
-      border-radius: 5px;
+    background: #FFD1DC; /* Blushed scrollbar thumb */
+    border-radius: 5px;
   }
-
   ::-webkit-scrollbar-thumb:hover {
-      background: #888;
+    background: #FABAC0; /* Lighter blush on hover */
   }
 
+  /* Body Styles */
   body {
-      background: #333; /* Darker background for a futuristic feel */
-      color: #ccc; /* Light text color for contrast */
-      font-family: 'Roboto', sans-serif; /* Modern, clean font */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      overflow: auto;
+    background: #FFEFEF; /* Light blush background */
+    color: #333; /* Darker text for readability */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
   }
 
+  /* Container Styles */
   .button-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
   }
-
-  .button-container button {
-      font-size: 18px;
-      padding: 10px 20px;
-      background: #444; /* Subtle button color */
-      border: none; /* Remove borders for a clean look */
-      border-radius: 5px; /* Rounded corners */
-      color: #ddd; /* Light text */
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.1s ease;
-  }
-
-  .button-container button:hover {
-      background-color: #555; /* Hover effect */
-  }
-
-  .button-container button:active {
-      transform: translateY(2px); /* Button press effect */
-  }
-
   .output-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px;
   }
 
+  /* Button Styles */
+  .button-container button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background: #FFC0CB; /* Soft pink background */
+    border: 1px solid #FFD1DC; /* Blushed border */
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  .button-container button:hover {
+    background-color: #FFD1DC; /* Lighter pink on hover */
+  }
+  .button-container button:active {
+    transform: translateY(2px); /* Button press effect */
+  }
+
+  /* Box Styles */
   .output-box,
   .support-output-box {
-      border: 1px solid #444; /* Sleek border color */
-      border-radius: 5px; /* Match the button border-radius */
-      padding: 10px;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-      overflow-y: scroll;
-      width: 300px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
+    border: 1px solid #FFD1DC;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #FFFFFF; /* White background for the boxes */
+    overflow-y: scroll;
+    width: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   }
-
   .output-box {
-      height: 250px;
+    height: 250px;
   }
-
   .support-output-box {
-      height: 100px;
+    height: 100px;
   }
 
+  /* Copy Button Styles */
   .copy-button {
-      margin-top: 30px;
-      padding: 2px 5px;
-      font-size: 12px;
-      background: #444; /* Matching button style */
-      border: 1px solid #555;
-      color: #ddd;
-      border-radius: 5px;
-      cursor: pointer;
+    margin-top: 30px;
+    padding: 2px 5px;
+    font-size: 12px;
+    background: #FFC0CB; /* Matching button style */
+    border: 1px solid #FFD1DC;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
   }
-
   .copy-button:hover {
-      background-color: #555; /* Hover effect */
+    background-color: #FFD1DC; /* Lighter pink on hover */
   }
 
+  /* Copy Confirmation Styles */
   .copy-confirmation {
-      position: absolute;
-      background-color: #444; /* Matching modal style */
-      color: #ddd;
-      padding: 10px;
-      border-radius: 5px; /* Soften the edges */
-      z-index: 1000;
-      border: 1px solid #555;
+    position: absolute;
+    background-color: #FFC0CB; /* Matching modal style */
+    color: #333;
+    padding: 10px;
+    border-radius: 5px; /* Soften the edges */
+    z-index: 1000;
+    border: 1px solid #FFD1DC;
   }
 </style>
 </head>
