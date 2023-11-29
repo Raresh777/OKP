@@ -170,7 +170,7 @@
         navigator.clipboard.writeText(textToCopy);
 
         const confirmation = document.createElement("div");
-        confirmation.textContent = "Copied 🫡";
+        confirmation.textContent = "Copied!";
         confirmation.className = "copy-confirmation";
         confirmation.style.left = `${event.clientX}px`;
         confirmation.style.top = `${event.clientY}px`;
@@ -183,10 +183,9 @@
     }
 
     async function generateMessages(containerId, url) {
-        clearPreviousBoxes(containerId);
         let sentences = await fetchSentences(url);
-        
         sentences = sentences.filter(sentence => !usedSentences[containerId].includes(sentence));
+        let boxes = [];
         
         for (let i = 1; i <= 3; i++) {
             if (sentences.length === 0) {
@@ -196,29 +195,31 @@
 
             let randomIndex = Math.floor(Math.random() * sentences.length);
             let selectedSentence = sentences[randomIndex];
-            
             usedSentences[containerId].push(selectedSentence);
             sentences.splice(randomIndex, 1);
 
-            await generateBox(i, selectedSentence, containerId);
+            boxes.push(createBox(i, selectedSentence, containerId));
         }
+        
+        // Update the DOM only once all boxes are ready
+        clearPreviousBoxes(containerId);
+        boxes.forEach(box => {
+            document.getElementById(containerId).appendChild(box);
+        });
     }
 
     async function fetchSentences(url) {
         try {
             const response = await fetch(`${url}?t=${Date.now()}`);
             const text = await response.text();
-
-            const sentences = text.split("^").filter(sentence => sentence.trim().length > 0);
-
-            return sentences;
+            return text.split("^").filter(sentence => sentence.trim().length > 0);
         } catch (error) {
             console.error("Error loading sentences:", error);
             return [];
         }
     }
 
-    async function generateBox(index, sentence, containerId) {
+    function createBox(index, sentence, containerId) {
         const outputElement = document.createElement("div");
         outputElement.className =
             containerId === "bundleBoxes" ? "output-box" : "support-output-box";
@@ -230,13 +231,13 @@
 
         const copyButton = document.createElement("button");
         copyButton.className = "copy-button";
-        copyButton.innerHTML = "Copy Text";
+        copyButton.textContent = "Copy Text";
         copyButton.onclick = function (event) {
             copyToClipboard(event, `output${containerId}${index}`);
         };
         outputElement.appendChild(copyButton);
 
-        document.getElementById(containerId).appendChild(outputElement);
+        return outputElement;
     }
 
     function clearPreviousBoxes(containerId) {
