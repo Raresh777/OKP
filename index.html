@@ -6,110 +6,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rares+</title>
     <style>
-       ::-webkit-scrollbar {
-    width: 10px;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-::-webkit-scrollbar-thumb {
-    background: #d4af37;
-    border-radius: 5px;
-}
+  ::-webkit-scrollbar {
+      width: 10px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #c5b358;
-}
+  ::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 5px;
+  }
 
-       body {
-    background: linear-gradient(to bottom, #f5f5dc, #d2b48c);
-    color: #804a00;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    overflow: auto;
-}
+  ::-webkit-scrollbar-thumb:hover {
+      background: #888;
+  }
 
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin: 20px;
-        }
+  body {
+      background: #333; /* Darker background for a futuristic feel */
+      color: #ccc; /* Light text color for contrast */
+      font-family: 'Roboto', sans-serif; /* Modern, clean font */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: auto;
+  }
 
-        .button-container button {
-            font-size: 18px;
-    padding: 10px 20px;
-    background: linear-gradient(to bottom, #d4af37, #a67c00);
-    border: 2px solid #c5b358;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.1s ease;
-}
+  .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin: 20px;
+  }
 
-        .button-container button:active {
-            transform: scale(0.95);
-        }
+  .button-container button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background: #444; /* Subtle button color */
+      border: none; /* Remove borders for a clean look */
+      border-radius: 5px; /* Rounded corners */
+      color: #ddd; /* Light text */
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+  }
 
-        .output-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            margin: 20px;
-        }
+  .button-container button:hover {
+      background-color: #555; /* Hover effect */
+  }
 
-        .output-box,
-        .support-output-box {
-            border: 2px solid goldenrod;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: rgba(255, 223, 0, 0.1);
-            overflow-y: scroll;
-            width: 300px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
+  .button-container button:active {
+      transform: translateY(2px); /* Button press effect */
+  }
 
-        .output-box {
-            height: 250px;
-        }
+  .output-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px;
+  }
 
-        .support-output-box {
-            height: 100px;
-        }
+  .output-box,
+  .support-output-box {
+      border: 1px solid #444; /* Sleek border color */
+      border-radius: 5px; /* Match the button border-radius */
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+      overflow-y: scroll;
+      width: 300px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+  }
 
-        .copy-button {
-            margin-top: 30px;
-            padding: 2px 5px;
-            font-size: 12px;
-            background: linear-gradient(to bottom, #c0c0c0, #808080);
-            border: 1px solid silver;
-            color: black;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+  .output-box {
+      height: 250px;
+  }
 
-        .copy-button:hover {
-            background-color: rgba(255, 215, 0, 0.2);
-        }
+  .support-output-box {
+      height: 100px;
+  }
 
-        .copy-confirmation {
-            position: absolute;
-            background-color: rgba(255, 223, 0, 0.7);
-            color: black;
-            padding: 10px;
-            border-radius: 50%;
-            z-index: 1000;
-            border: 2px solid gold;
-        }
-    </style>
+  .copy-button {
+      margin-top: 30px;
+      padding: 2px 5px;
+      font-size: 12px;
+      background: #444; /* Matching button style */
+      border: 1px solid #555;
+      color: #ddd;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  .copy-button:hover {
+      background-color: #555; /* Hover effect */
+  }
+
+  .copy-confirmation {
+      position: absolute;
+      background-color: #444; /* Matching modal style */
+      color: #ddd;
+      padding: 10px;
+      border-radius: 5px; /* Soften the edges */
+      z-index: 1000;
+      border: 1px solid #555;
+  }
+</style>
 </head>
 
 <body>
