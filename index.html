@@ -4,66 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objectives Flowchart</title>
+    <title>Enhanced Flowchart</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f9;
+            margin: 0;
+            background: url('https://source.unsplash.com/1920x1080/?sports,girls') no-repeat center center/cover;
+            background-color: #000;
         }
 
         .flowchart {
             display: grid;
-            grid-template-columns: repeat(3, 200px);
-            grid-template-rows: auto;
-            gap: 20px;
+            grid-template-columns: repeat(3, 300px);
+            gap: 50px;
             position: relative;
+            max-width: 1200px;
         }
 
         .box {
             padding: 20px;
-            background-color: #ffffff;
-            border: 2px solid #007bff;
-            border-radius: 10px;
+            color: #fff;
+            border-radius: 15px;
             text-align: center;
             position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            transition: all 0.3s ease-in-out;
         }
 
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .objective { background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%); }
+        .kpi { background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%); }
+        .pilot { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+
         .line {
-            width: 2px;
-            height: 80px;
-            background-color: #007bff;
+            width: 3px;
+            height: 100px;
+            background: linear-gradient(180deg, #fff, #007bff);
             position: absolute;
             z-index: -1;
+            border-radius: 5px;
         }
 
         .horizontal-line {
-            width: 80px;
-            height: 2px;
-            background-color: #007bff;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #fff, #007bff);
             position: absolute;
             z-index: -1;
+            border-radius: 5px;
+        }
+
+        .description {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            width: 250px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .box:hover + .description {
+            display: block;
         }
 
         /* Connecting Lines */
-        .line-1 { top: 140px; left: 100px; } /* Line from Objective to KPI */
-        .line-2 { top: 140px; left: 300px; } /* Line from Objective to KPI */
-        .line-3 { top: 140px; left: 500px; } /* Line from Objective to KPI */
-        .line-4 { top: 280px; left: 200px; } /* Line from KPI to Pilot */
-        .horizontal-line-1 { top: 260px; left: 180px; } /* Horizontal Line */
-        .horizontal-line-2 { top: 260px; left: 380px; } /* Horizontal Line */
+        .line-1 { top: 120px; left: 150px; } 
+        .line-2 { top: 120px; left: 450px; } 
+        .line-3 { top: 120px; left: 750px; } 
+        .line-4 { top: 280px; left: 450px; } 
+        .horizontal-line-1 { top: 240px; left: 250px; }
+        .horizontal-line-2 { top: 240px; left: 550px; }
     </style>
 </head>
 <body>
 
 <div class="flowchart">
     <!-- Objectives -->
-    <div class="box">Objective 1: Increase Lead Generation</div>
-    <div class="box">Objective 2: Optimize Campaign Performance</div>
-    <div class="box">Objective 3: High-Quality Trained Candidates</div>
+    <div class="box objective">Objective 1: Increase Lead Generation</div>
+    <div class="description">Focus on maximizing the number of qualified leads for DARE's training programs to feed into Pioneer roles.</div>
+    
+    <div class="box objective">Objective 2: Optimize Campaign Performance</div>
+    <div class="description">Ensure all campaigns are cost-efficient, reach the correct audience, and maximize engagement and conversion rates.</div>
+    
+    <div class="box objective">Objective 3: High-Quality Trained Candidates</div>
+    <div class="description">Ensure the training process delivers top-notch talent that meets Pioneer's requirements.</div>
 
     <!-- Vertical Connecting Lines -->
     <div class="line line-1"></div>
@@ -71,9 +107,14 @@
     <div class="line line-3"></div>
 
     <!-- KPIs -->
-    <div class="box">KPI 1: Lead Metrics</div>
-    <div class="box">KPI 2: Campaign Metrics</div>
-    <div class="box">KPI 3: Training Quality Metrics</div>
+    <div class="box kpi">KPI 1: Lead Metrics</div>
+    <div class="description">Number of leads generated per campaign and platform (META, TikTok, etc.).</div>
+    
+    <div class="box kpi">KPI 2: Campaign Metrics</div>
+    <div class="description">Engagement rate, click-through rate (CTR), and cost efficiency of ads.</div>
+    
+    <div class="box kpi">KPI 3: Training Quality Metrics</div>
+    <div class="description">Percentage of trainees successfully transitioning into Pioneer roles and time to competence.</div>
 
     <!-- Horizontal Connecting Lines -->
     <div class="horizontal-line horizontal-line-1"></div>
@@ -83,7 +124,14 @@
     <div class="line line-4"></div>
 
     <!-- Pilots -->
-    <div class="box">Pilot 1: Weekly Reviews</div>
+    <div class="box pilot">Pilot 1: Weekly Reviews</div>
+    <div class="description">Review campaign data regularly and adjust strategies based on the best performers.</div>
+    
+    <div class="box pilot">Pilot 2: Daily Adjustments</div>
+    <div class="description">Use daily reports to monitor lead generation and adjust focus on underperforming areas.</div>
+    
+    <div class="box pilot">Pilot 3: Feedback Loop</div>
+    <div class="description">Establish a feedback loop with Pioneer to optimize the training process continuously.</div>
 </div>
 
 </body>
