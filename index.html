@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowchart</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -61,7 +63,7 @@
         .description {
             position: fixed;
             top: 50%;
-            right: 20px;
+            right: 100px; /* Adjusted for better positioning */
             transform: translateY(-50%);
             background: rgba(0, 0, 0, 0.8);
             color: #fff;
@@ -84,6 +86,26 @@
         .description ul {
             padding-left: 15px;
             list-style-type: disc;
+        }
+
+        .dare-footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #FFD700; /* DARE yellow */
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .dare-footer:before, .dare-footer:after {
+            content: '';
+            display: block;
+            height: 2px;
+            background: #FFD700;
+            width: 100px;
+            margin: 10px auto;
         }
     </style>
 </head>
@@ -191,10 +213,16 @@
     <div class="box pilot">Pilot 4: Resource Allocation Based on Data</div>
     <div class="description">
         <ul>
+           ```html
             <li>Dynamically allocate resources (content creation, ad spend).</li>
             <li>Target campaigns showing the best lead conversion rates.</li>
         </ul>
     </div>
+</div>
+
+<!-- DARE Footer Text with Artistic Lines -->
+<div class="dare-footer">
+    DARE
 </div>
 
 </body>
