@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Flowchart</title>
+    <title>Enhanced Flowchart - Pyramid Structure</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,7 +20,7 @@
         .flowchart {
             display: grid;
             grid-template-columns: repeat(3, 300px);
-            gap: 50px;
+            gap: 20px;
             position: relative;
             max-width: 1200px;
         }
@@ -47,7 +47,6 @@
 
         .line {
             width: 3px;
-            height: 100px;
             background: linear-gradient(180deg, #fff, #007bff);
             position: absolute;
             z-index: -1;
@@ -55,7 +54,6 @@
         }
 
         .horizontal-line {
-            width: 100px;
             height: 3px;
             background: linear-gradient(90deg, #fff, #007bff);
             position: absolute;
@@ -79,13 +77,16 @@
             display: block;
         }
 
-        /* Connecting Lines */
-        .line-1 { top: 120px; left: 150px; } 
-        .line-2 { top: 120px; left: 450px; } 
-        .line-3 { top: 120px; left: 750px; } 
-        .line-4 { top: 280px; left: 450px; } 
-        .horizontal-line-1 { top: 240px; left: 250px; }
-        .horizontal-line-2 { top: 240px; left: 550px; }
+        /* Properly Connecting Lines */
+        .line-1 { top: 90px; left: 150px; height: 60px; } /* From Objectives to KPIs */
+        .line-2 { top: 90px; left: 450px; height: 60px; } 
+        .line-3 { top: 90px; left: 750px; height: 60px; } 
+
+        .line-4 { top: 240px; left: 300px; height: 80px; } /* From KPIs to Pilots */
+        .line-5 { top: 240px; left: 600px; height: 80px; }
+
+        .horizontal-line-1 { top: 210px; left: 300px; width: 120px; } /* Horizontal Lines Connecting KPIs */
+        .horizontal-line-2 { top: 210px; left: 600px; width: 120px; }
     </style>
 </head>
 <body>
@@ -101,7 +102,7 @@
     <div class="box objective">Objective 3: High-Quality Trained Candidates</div>
     <div class="description">Ensure the training process delivers top-notch talent that meets Pioneer's requirements.</div>
 
-    <!-- Vertical Connecting Lines -->
+    <!-- Vertical Connecting Lines from Objectives to KPIs -->
     <div class="line line-1"></div>
     <div class="line line-2"></div>
     <div class="line line-3"></div>
@@ -116,12 +117,13 @@
     <div class="box kpi">KPI 3: Training Quality Metrics</div>
     <div class="description">Percentage of trainees successfully transitioning into Pioneer roles and time to competence.</div>
 
-    <!-- Horizontal Connecting Lines -->
+    <!-- Horizontal Connecting Lines Between KPIs -->
     <div class="horizontal-line horizontal-line-1"></div>
     <div class="horizontal-line horizontal-line-2"></div>
 
-    <!-- Vertical Connecting Line from KPI to Pilots -->
+    <!-- Vertical Connecting Lines from KPIs to Pilots -->
     <div class="line line-4"></div>
+    <div class="line line-5"></div>
 
     <!-- Pilots -->
     <div class="box pilot">Pilot 1: Weekly Reviews</div>
