@@ -13,8 +13,21 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: url('https://source.unsplash.com/1920x1080/?sports,girls') no-repeat center center/cover;
-            background-color: #000;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            z-index: 1;
+            width: 100vw;
+            height: auto;
+            max-width: 1500px;
         }
 
         .flowchart {
@@ -27,6 +40,7 @@
                 "obj1 obj2 obj3 obj4"
                 "kpi1 kpi2 kpi3 kpi4"
                 "pilot1 pilot2 pilot3 pilot4";
+            z-index: 2;
         }
 
         .box {
@@ -47,13 +61,12 @@
         .description {
             position: fixed;
             top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 10px;
             background: rgba(0, 0, 0, 0.8);
             color: #fff;
             padding: 15px;
             border-radius: 8px;
-            max-width: 300px;
+            max-width: 250px;
             text-align: left;
             z-index: 10;
             border: 1px solid #fff;
@@ -74,6 +87,9 @@
     </style>
 </head>
 <body>
+
+<!-- DARE Logo in the Background -->
+<img src="logo-dare-white-3.png" alt="DARE Logo" class="background-logo">
 
 <div class="flowchart">
     <!-- Objectives -->
