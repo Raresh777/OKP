@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pyramid Flowchart</title>
+    <title>Flowchart</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -38,12 +38,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             transition: all 0.3s ease-in-out;
-            cursor: pointer;
-        }
-
-        .box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
         }
 
         .objective { background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%); }
@@ -52,22 +46,30 @@
 
         .description {
             position: absolute;
-            top: -80px;
+            top: -120px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.8);
             color: #fff;
             padding: 10px;
             border-radius: 8px;
-            display: none;
             max-width: 250px;
-            text-align: center;
+            text-align: left;
             z-index: 10;
             border: 1px solid #fff;
+            visibility: hidden;
+            transition: visibility 0s, opacity 0.2s linear;
+            opacity: 0;
         }
 
         .box:hover + .description {
-            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .description ul {
+            padding-left: 15px;
+            list-style-type: disc;
         }
     </style>
 </head>
@@ -76,42 +78,106 @@
 <div class="flowchart">
     <!-- Objectives -->
     <div class="box objective">Objective 1: Increase Lead Generation</div>
-    <div class="description">Focus on maximizing the number of qualified leads for DARE's training programs to feed into Pioneer roles.</div>
+    <div class="description">
+        <ul>
+            <li>Focus on maximizing the number of qualified leads for DARE's training programs to feed into Pioneer roles.</li>
+        </ul>
+    </div>
 
     <div class="box objective">Objective 2: Optimize Campaign Performance</div>
-    <div class="description">Ensure all campaigns are cost-efficient, reach the correct audience, and maximize engagement and conversion rates.</div>
+    <div class="description">
+        <ul>
+            <li>Ensure all campaigns are cost-efficient.</li>
+            <li>Reach the correct audience.</li>
+            <li>Maximize engagement and conversion rates.</li>
+        </ul>
+    </div>
 
     <div class="box objective">Objective 3: Provide High-Quality Trained Candidates</div>
-    <div class="description">Ensure the training process delivers top-notch talent that meets Pioneer's requirements.</div>
+    <div class="description">
+        <ul>
+            <li>Ensure the training process delivers top-notch talent that meets Pioneer's requirements.</li>
+        </ul>
+    </div>
 
     <div class="box objective">Objective 4: Monitor Location-Specific Hiring Needs</div>
-    <div class="description">Continuously assess which locations need more talent and deploy resources to meet these needs effectively.</div>
+    <div class="description">
+        <ul>
+            <li>Continuously assess which locations need more talent.</li>
+            <li>Deploy resources to meet these needs effectively.</li>
+        </ul>
+    </div>
 
     <!-- KPIs -->
     <div class="box kpi">KPI 1: Lead Generation Metrics</div>
-    <div class="description">Number of leads generated per campaign and platform (META, TikTok, etc.).</div>
+    <div class="description">
+        <ul>
+            <li>Number of leads generated per campaign and platform (META, TikTok, etc.).</li>
+            <li>Conversion rates from leads to enrolled trainees.</li>
+            <li>Cost per lead (CPL) to measure cost efficiency.</li>
+        </ul>
+    </div>
 
     <div class="box kpi">KPI 2: Campaign Performance Metrics</div>
-    <div class="description">Engagement rate (likes, shares, comments), click-through rate (CTR) for ads, and Return on Ad Spend (ROAS).</div>
+    <div class="description">
+        <ul>
+            <li>Engagement rate (likes, shares, comments).</li>
+            <li>Click-through rate (CTR) for ads.</li>
+            <li>Return on ad spend (ROAS).</li>
+        </ul>
+    </div>
 
     <div class="box kpi">KPI 3: Training Quality Metrics</div>
-    <div class="description">Percentage of trainees successfully transitioning into Pioneer roles, time to competence, and feedback scores from trainees and Pioneer managers.</div>
+    <div class="description">
+        <ul>
+            <li>Percentage of trainees successfully transitioning into Pioneer roles.</li>
+            <li>Time to competence: how quickly trainees reach performance benchmarks.</li>
+            <li>Feedback scores from trainees and Pioneer managers.</li>
+        </ul>
+    </div>
 
     <div class="box kpi">KPI 4: Location-Specific Hiring Metrics</div>
-    <div class="description">Number of hires needed per location and language, lead generation success rate per location, and campaign effectiveness in targeted languages.</div>
+    <div class="description">
+        <ul>
+            <li>Number of hires needed per location and language.</li>
+            <li>Lead generation success rate per location.</li>
+            <li>Campaign effectiveness in targeted languages.</li>
+        </ul>
+    </div>
 
     <!-- Pilot Strategies -->
     <div class="box pilot">Pilot 1: Weekly Performance Reviews</div>
-    <div class="description">Review campaign performance data regularly and adjust strategies based on the best-performing creatives, texts, and formats.</div>
+    <div class="description">
+        <ul>
+            <li>Regularly review campaign performance data.</li>
+            <li>Adjust strategies based on the best-performing creatives, texts, and formats.</li>
+        </ul>
+    </div>
 
     <div class="box pilot">Pilot 2: Daily Reporting and Adjustments</div>
-    <div class="description">Use daily reports to monitor lead generation and adjust campaign focus as needed.</div>
+    <div class="description">
+        <ul>
+            <li>Use daily reports to monitor the status of lead generation and location-specific needs.</li>
+            <li>Adjust campaign focus (e.g., increase spend in locations with low lead flow).</li>
+        </ul>
+    </div>
 
     <div class="box pilot">Pilot 3: Feedback Loop with Pioneer</div>
-    <div class="description">Establish a feedback loop with Pioneer to optimize the training process continuously based on performance insights.</div>
+    <div class="description">
+        <ul>
+            <li>Establish a feedback loop with Pioneer.</li>
+            <li>Get insights into the performance of trainees.</li>
+            <li>Adjust training content accordingly.</li>
+        </ul>
+    </div>
 
     <div class="box pilot">Pilot 4: Resource Allocation Based on Data</div>
-    <div class="description">Dynamically allocate resources (content creation, ad spend) to campaigns showing the best lead conversion rates.</div>
+    <div class="description">
+        <ul>
+            <li>Dynamically allocate resources (content creation, ad spend).</li>
+            <li>Target campaigns showing the best lead conversion rates.</li>
+        </ul>
+    </div>
 </div>
 
 </body>
