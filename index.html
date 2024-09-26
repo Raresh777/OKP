@@ -1,252 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rares+</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectives Flowchart</title>
     <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
 
-  /* General Scrollbar Styles */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #FFD1DC; /* Blushed scrollbar thumb */
-    border-radius: 5px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #FABAC0; /* Lighter blush on hover */
-  }
+        .flowchart {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            grid-template-rows: auto;
+            gap: 20px;
+            position: relative;
+        }
 
-  /* Body Styles */
-  body {
-    background: #FFEFEF; /* Light blush background */
-    color: #333; /* Darker text for readability */
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    overflow: auto;
-  }
+        .box {
+            padding: 20px;
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
 
-  /* Container Styles */
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 20px;
-  }
-  .output-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin: 20px;
-  }
+        .line {
+            width: 2px;
+            height: 80px;
+            background-color: #007bff;
+            position: absolute;
+            z-index: -1;
+        }
 
-  /* Button Styles */
-  .button-container button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background: #FFC0CB; /* Soft pink background */
-    border: 1px solid #FFD1DC; /* Blushed border */
-    border-radius: 5px;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-  }
-  .button-container button:hover {
-    background-color: #FFD1DC; /* Lighter pink on hover */
-  }
-  .button-container button:active {
-    transform: translateY(2px); /* Button press effect */
-  }
+        .horizontal-line {
+            width: 80px;
+            height: 2px;
+            background-color: #007bff;
+            position: absolute;
+            z-index: -1;
+        }
 
-  /* Box Styles */
-  .output-box,
-  .support-output-box {
-    border: 1px solid #FFD1DC;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #FFFFFF; /* White background for the boxes */
-    overflow-y: scroll;
-    width: 300px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  }
-  .output-box {
-    height: 250px;
-  }
-  .support-output-box {
-    height: 100px;
-  }
-
-  /* Copy Button Styles */
-  .copy-button {
-    margin-top: 30px;
-    padding: 2px 5px;
-    font-size: 12px;
-    background: #FFC0CB; /* Matching button style */
-    border: 1px solid #FFD1DC;
-    color: #333;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .copy-button:hover {
-    background-color: #FFD1DC; /* Lighter pink on hover */
-  }
-
-  /* Copy Confirmation Styles */
-  .copy-confirmation {
-    position: absolute;
-    background-color: #FFC0CB; /* Matching modal style */
-    color: #333;
-    padding: 10px;
-    border-radius: 5px; /* Soften the edges */
-    z-index: 1000;
-    border: 1px solid #FFD1DC;
-  }
-</style>
+        /* Connecting Lines */
+        .line-1 { top: 140px; left: 100px; } /* Line from Objective to KPI */
+        .line-2 { top: 140px; left: 300px; } /* Line from Objective to KPI */
+        .line-3 { top: 140px; left: 500px; } /* Line from Objective to KPI */
+        .line-4 { top: 280px; left: 200px; } /* Line from KPI to Pilot */
+        .horizontal-line-1 { top: 260px; left: 180px; } /* Horizontal Line */
+        .horizontal-line-2 { top: 260px; left: 380px; } /* Horizontal Line */
+    </style>
 </head>
-
 <body>
-    <div class="button-container">
-        <button id="generateButton">$$$</button>
-    </div>
-    <div class="output-container" id="bundleBoxes">
-    </div>
-    <div class="button-container">
-        <button id="supportButton">Postari</button>
-    </div>
-    <div class="output-container" id="supportBoxes">
-    </div>
 
-    <script>
-    // Global state for used sentences
-    const usedSentences = {
-        bundleBoxes: [],
-        supportBoxes: []
-    };
+<div class="flowchart">
+    <!-- Objectives -->
+    <div class="box">Objective 1: Increase Lead Generation</div>
+    <div class="box">Objective 2: Optimize Campaign Performance</div>
+    <div class="box">Objective 3: High-Quality Trained Candidates</div>
 
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("generateButton").addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default action of the button
-            generateMessages(
-                "bundleBoxes",
-                "https://raw.githubusercontent.com/Raresh777/Postari/main/bld.txt"
-            );
-        });
-        document.getElementById("supportButton").addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default action of the button
-            generateMessages(
-                "supportBoxes",
-                "https://raw.githubusercontent.com/Raresh777/Postari/main/supp.txt"
-            );
-        });
+    <!-- Vertical Connecting Lines -->
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
 
-        // Initial fetching on page load
-        generateMessages(
-            "bundleBoxes",
-            "https://raw.githubusercontent.com/Raresh777/Postari/main/bld.txt"
-        );
-        generateMessages(
-            "supportBoxes",
-            "https://raw.githubusercontent.com/Raresh777/Postari/main/supp.txt"
-        );
-    });
+    <!-- KPIs -->
+    <div class="box">KPI 1: Lead Metrics</div>
+    <div class="box">KPI 2: Campaign Metrics</div>
+    <div class="box">KPI 3: Training Quality Metrics</div>
 
-    function copyToClipboard(event, elementId) {
-        const textToCopy = document.getElementById(elementId).textContent;
-        navigator.clipboard.writeText(textToCopy);
+    <!-- Horizontal Connecting Lines -->
+    <div class="horizontal-line horizontal-line-1"></div>
+    <div class="horizontal-line horizontal-line-2"></div>
 
-        const confirmation = document.createElement("div");
-        confirmation.textContent = "Copied!";
-        confirmation.className = "copy-confirmation";
-        confirmation.style.left = `${event.clientX}px`;
-        confirmation.style.top = `${event.clientY}px`;
+    <!-- Vertical Connecting Line from KPI to Pilots -->
+    <div class="line line-4"></div>
 
-        document.body.appendChild(confirmation);
+    <!-- Pilots -->
+    <div class="box">Pilot 1: Weekly Reviews</div>
+</div>
 
-        setTimeout(() => {
-            document.body.removeChild(confirmation);
-        }, 2000);
-    }
-
-    async function generateMessages(containerId, url) {
-        let sentences = await fetchSentences(url);
-        sentences = sentences.filter(sentence => !usedSentences[containerId].includes(sentence));
-        let boxes = [];
-        
-        for (let i = 1; i <= 3; i++) {
-            if (sentences.length === 0) {
-                usedSentences[containerId] = [];
-                sentences = await fetchSentences(url);
-            }
-
-            let randomIndex = Math.floor(Math.random() * sentences.length);
-            let selectedSentence = sentences[randomIndex];
-            usedSentences[containerId].push(selectedSentence);
-            sentences.splice(randomIndex, 1);
-
-            boxes.push(createBox(i, selectedSentence, containerId));
-        }
-        
-        // Update the DOM only once all boxes are ready
-        clearPreviousBoxes(containerId);
-        boxes.forEach(box => {
-            document.getElementById(containerId).appendChild(box);
-        });
-    }
-
-    async function fetchSentences(url) {
-        try {
-            const response = await fetch(`${url}?t=${Date.now()}`);
-            const text = await response.text();
-            return text.split("^").filter(sentence => sentence.trim().length > 0);
-        } catch (error) {
-            console.error("Error loading sentences:", error);
-            return [];
-        }
-    }
-
-    function createBox(index, sentence, containerId) {
-        const outputElement = document.createElement("div");
-        outputElement.className =
-            containerId === "bundleBoxes" ? "output-box" : "support-output-box";
-
-        const contentElement = document.createElement("div");
-        contentElement.id = `output${containerId}${index}`;
-        contentElement.innerHTML = sentence;
-        outputElement.appendChild(contentElement);
-
-        const copyButton = document.createElement("button");
-        copyButton.className = "copy-button";
-        copyButton.textContent = "Copy Text";
-        copyButton.onclick = function (event) {
-            copyToClipboard(event, `output${containerId}${index}`);
-        };
-        outputElement.appendChild(copyButton);
-
-        return outputElement;
-    }
-
-    function clearPreviousBoxes(containerId) {
-        const container = document.getElementById(containerId);
-        while (container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
-    }
-</script>
 </body>
-
 </html>
